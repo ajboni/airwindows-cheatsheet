@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+a {
+  @apply text-gray-300 font-bold hover:text-white
+}
