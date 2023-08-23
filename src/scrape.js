@@ -2,8 +2,7 @@ import { writeFileSync } from "fs";
 getAirwindopedia();
 
 async function getAirwindopedia() {
-  const airwindopediaURL =
-    "https://www.airwindows.com/wp-content/uploads/Airwindopedia.txt";
+  const airwindopediaURL = "https://www.airwindows.com/wp-content/uploads/Airwindopedia.txt";
 
   const request = await fetch(airwindopediaURL);
   const content = await request.text();
@@ -17,6 +16,8 @@ async function getAirwindopedia() {
   const tempCategoryDB = {};
   const entries = content.split(entriesSeparator);
   const intro = entries.shift();
+  const introText = intro.split("# Categories")[0];
+  database.introText = introText;
   const categoriesText = intro.split("# Categories")[1];
   const categoriesRegex = /^([\w]{1}[\w\s\-]+):(.+)$/gm;
   const categoriesMatches = categoriesText.matchAll(categoriesRegex);
@@ -55,9 +56,7 @@ async function getAirwindopedia() {
 
   try {
     writeFileSync("./src/database.json", JSON.stringify(database, null, 2));
-    console.log(
-      `database.json written: ${database.plugins.length} plugins scraped. `
-    );
+    console.log(`database.json written: ${database.plugins.length} plugins scraped. `);
   } catch (error) {
     console.error(error);
   }

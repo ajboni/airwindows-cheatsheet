@@ -1,8 +1,24 @@
-# React + Vite
+# Airwindows Cheatsheet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cheatsheet for Airwindows plugins.
+This project aims to build an automated frontend for the airwindowpedia documentation file.
 
-Currently, two official plugins are available:
+# Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Category filters
+- Search filters
+- Favorites
+- Automatic Builds.
+- Mobile friendly.
+
+# License and Copyright
+
+The content of airwindopedia (used in this page) is property of Chris Johnson © 2023 Airwindows | handsewn bespoke digital audio
+The website and scrapper is GPLv3 licensed. © 2023 Alexis Boni
+
+# Development
+
+- Clone the repo.
+- `npm install``
+- `npm run dev``
+- Web server should be reachable at `http://localhost:5173`
