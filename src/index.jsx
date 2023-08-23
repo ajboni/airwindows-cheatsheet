@@ -12,11 +12,11 @@ export function App() {
   const [filter, setFilter] = useState("All");
   return (
     <main className="bg-gray-800 w-screen h-screen text-gray-200 overflow-auto">
-      <div className="p-8 flex flex-col gap-8">
-        <div className="text-center flex flex-col gap-4 items-center justify-center">
-          <h1 className="text-3xl md:text-5xl max-w-xl">Airwindows Cheatsheet</h1>
+      <div className="p-8 flex flex-col gap-10">
+        <div className="text-center flex flex-col gap-4 items-center justify-center mt-4">
+          <h1 className="text-3xl font-bold md:text-5xl max-w-xl">Airwindows Cheatsheet</h1>
           <p className="text-gray-400 max-w-xl">
-            Cheatsheet for
+            Cheatsheet for the <strong className="text-blue-400 saturate-50 underline">{db.plugins.length}</strong>{" "}
             <a className="text-gray-300 font-bold hover:text-white" href="https://www.airwindows.com">
               Airwindows
             </a>{" "}
