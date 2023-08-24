@@ -67,12 +67,16 @@ function PluginList({ db, filter, search }) {
             return (
               <div
                 key={index}
-                className={`px-4 md:px-2 py-4 md:py-1 flex-col flex md:flex-row gap-2 md:gap-8 ${selectedBg} ${zebraBg} cursor-pointer hover:opacity-90`}
+                className={`relative px-4 md:px-2 py-2 md:py-1 flex-col flex md:flex-row gap-2 md:gap-8 ${selectedBg} ${zebraBg} cursor-pointer hover:opacity-90`}
                 onClick={() => setSelectedPlugin(plugin)}
               >
                 <div className={`min-w-[20ch] font-bold text-gray-50  text-sm`}>{highlightSearch(plugin.name)}</div>
                 <div className="text-sm flex-grow leading-6">{highlightSearch(plugin.shortDescription)}</div>
-                {filter === "All" && <div className="text-xs flex-shrink-0 text-right italic">{plugin.category}</div>}
+                {filter === "All" && (
+                  <div className="text-xs flex-shrink-0 text-right italic md:relative absolute right-2 top-2">
+                    {plugin.category}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -100,7 +104,7 @@ function PluginList({ db, filter, search }) {
 
       {/* Mobile */}
       {selectedPlugin && (
-        <div className="w-screen h-screen md:hidden absolute top-0 bottom-0 left-0 right-0 z-40  bg-gray-800  whitespace-pre-wrap flex flex-col gap-6 pt-12 pb-24 overflow-auto">
+        <div className="p-8 w-screen h-screen md:hidden absolute top-0 bottom-0 left-0 right-0 z-40  bg-gray-800  whitespace-pre-wrap flex flex-col gap-6 pt-12 pb-24 overflow-auto">
           <div className="prose mx-auto text-gray-100 font-bold text-3xl underline underline-offset-4 break-words ">
             {selectedPlugin?.name || "Airwindopedia"}
           </div>

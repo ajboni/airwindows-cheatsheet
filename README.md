@@ -1,6 +1,6 @@
 # Airwindows Cheatsheet
 
-Cheatsheet for Airwindows plugins.  
+Cheatsheet for [Airwindows](https://www.airwindows.com) plugins.  
 This project aims to build an automated frontend for the airwindowpedia documentation file.
 
 # Features
@@ -13,8 +13,7 @@ This project aims to build an automated frontend for the airwindowpedia document
 
 # License and Copyright
 
-The content of airwindopedia (used in this page) is property of Chris Johnson © 2023 Airwindows | handsewn bespoke digital audio.  
-The website and scrapper is GPLv3 licensed. © 2023 Alexis Boni
+The content of [airwindopedia](https://www.airwindows.com/wp-content/uploads/Airwindopedia.txt) (used in this page) is property of Chris Johnson © 2023 [Airwindows | handsewn bespoke digital audio.](https://www.airwindows.com)
 
 # Development
 

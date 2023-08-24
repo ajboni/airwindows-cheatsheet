@@ -33,10 +33,10 @@ export const Filter = ({ db, filter, setFilter, search, setSearch }) => {
           type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-11/12 bg-gray-700 py-1.5 pl-10 text-gray-200 px-3 rounded-md border-0 focus:outline-none"
+          className="w-5/6  bg-gray-700 py-1.5 pl-10 text-gray-200 px-3 rounded-md border-0 focus:outline-none"
           placeholder="Search by name or description..."
         ></input>
-        <button className="w-1/12 cursor-pointer bg-gray-700 rounded-md hover:bg-gray-600" onClick={() => setSearch("")}>
+        <button className="w-1/6 cursor-pointer bg-gray-700 rounded-md hover:bg-gray-600" onClick={() => setSearch("")}>
           Clear
         </button>
       </div>
