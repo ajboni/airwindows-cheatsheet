@@ -6,3 +6,7 @@
 a {
   @apply text-gray-300 font-bold hover:text-white
 }
+
+.listbox-item {
+  @apply text-gray-300 font-bold hover:text-white  hover:bg-gray-600 cursor-pointer px-4 py-2
+}

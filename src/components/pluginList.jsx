@@ -2,13 +2,13 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 
-function PluginList({ db, filter, search }) {
+function PluginList({ db, filter, search, sortBy }) {
   const [selectedPlugin, setSelectedPlugin] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
-  const introText = `The following is the airwindopedia introduction written by Chris Johnson in his blog (http://airwindows.com).\n\n${db.introText}`;
+  const introText = `This area contains the airwindopedia introduction written by Chris Johnson in his blog and the plugin description if selected.\n\n${db.introText}`;
   const [debouncedSearch] = useDebounce(search, 200);
 
   /* Set/Unset Favorite from localstorage */
@@ -26,12 +26,26 @@ function PluginList({ db, filter, search }) {
   if (filter === "All") filteredPlugins = db.plugins;
   if (filter === "Favorites") filteredPlugins = db.plugins.filter((x) => localStorage.getItem(x.name) !== null);
 
-  /* Finally filter with the text/description filter (if any)  */
+  /* Filter with the text/description filter (if any)  */
   filteredPlugins = filteredPlugins.filter(
     (plugin) =>
       plugin.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
       plugin.shortDescription.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
+
+  /* Filter sort by Chris' order of goodness if set  */
+  if (sortBy === "Order of Goodness" && filter !== "Favorites") {
+    if (filter === "All") {
+      // Sort by category first
+      filteredPlugins = filteredPlugins.sort((a, b) => a.category.localeCompare(b.category));
+
+      // Then, within each category, sort by goodness
+      filteredPlugins.sort((a, b) => (a.category === b.category ? a.goodness - b.goodness : 0));
+    } else {
+      // In a filtered view, just sort by goodness.
+      filteredPlugins = filteredPlugins.sort((a, b) => a.goodness > b.goodness);
+    }
+  }
 
   const toggleFavorite = (plugin) => {
     if (localStorage.getItem(plugin.name)) {
@@ -58,8 +72,8 @@ function PluginList({ db, filter, search }) {
   };
 
   return (
-    <div className="flex border rounded border-gray-600 divide-">
-      <div className="flex w-full md:w-7/12 border-r border-gray-600 flex-shrink-0">
+    <div className="flex border rounded border-gray-600 h-full overflow-hidden">
+      <div className="flex w-full md:w-7/12 border-r border-gray-600 flex-shrink-0 overflow-auto">
         <div className="flex flex-col w-full">
           {filteredPlugins.map((plugin, index) => {
             const selectedBg = selectedPlugin?.name === plugin.name ? "!bg-blue-800 saturate-50" : "";

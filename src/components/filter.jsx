@@ -1,7 +1,8 @@
 import { Listbox } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { ChevronUpDownIcon, LockClosedIcon, MagnifyingGlassIcon, XCircleIcon } from "@heroicons/react/20/solid";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-export const Filter = ({ db, filter, setFilter, search, setSearch }) => {
+export const Filter = ({ db, filter, setFilter, search, setSearch, sortBy, setSortBy }) => {
   const categories = Object.keys(db.categories);
   categories.unshift("Favorites");
   categories.unshift("All");
@@ -18,45 +19,65 @@ export const Filter = ({ db, filter, setFilter, search, setSearch }) => {
               } col-span-1 flex rounded-md shadow-sm  px-2 py-1 cursor-pointer hover:bg-gray-600`}
               onClick={() => setFilter(category)}
             >
-              <div>{category}</div>
+              <div className="text-sm">{category}</div>
             </li>
           );
         })}
       </ul>
 
       {/* Search */}
-      <div className="relative rounded-md shadow-sm flex gap-2">
+      <div className="relative rounded-md shadow-sm flex gap-2 text-sm">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
         </div>
-        <input
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-5/6  bg-gray-700 py-1.5 pl-10 text-gray-200 px-3 rounded-md border-0 focus:outline-none"
-          placeholder="Search by name or description..."
-        ></input>
-        <button className="w-1/6 cursor-pointer bg-gray-700 rounded-md hover:bg-gray-600" onClick={() => setSearch("")}>
-          Clear
-        </button>
+        <div className="w-5/6 lg:w-5/6 flex relative  ">
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className=" bg-gray-700 py-1 pr-6 pl-4 text-gray-200 px-3 focus:outline-none w-full rounded-md border-0"
+            placeholder="Search by name or description..."
+          ></input>
+          <button className="absolute cursor-pointer  right-1 top-0 bottom-0 " onClick={() => setSearch("")}>
+            <XMarkIcon className="w-5 h-5  text-gray-400 hover:text-gray-200" />
+          </button>
+        </div>
+
+        {/* Sort By */}
+        <div className="text-sm relative w-2/6 lg:-1/6">
+          <Listbox value={sortBy} onChange={setSortBy}>
+            <Listbox.Button className="relative w-full cursor-default rounded-md bg-gray-700 py-1 pl-3 pr-10 text-left text-gray-200 shadow-sm ring-1 ring-inset ring-gray-600 md:text-sm md:leading-6 ">
+              <span className="block truncate">{sortBy}</span>
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                <ChevronUpDownIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
+              </span>
+            </Listbox.Button>
+            <Listbox.Options className={"bg-gray-700 rounded max-h-64 overflow-auto absolute left-0 right-0 z-30 mt-2 shadow-xl"}>
+              <Listbox.Option value="Alphabetical Order" className="listbox-item">
+                Alphabetical Order
+              </Listbox.Option>
+              <Listbox.Option value="Order of Goodness" className="listbox-item">
+                Order of Goodness
+              </Listbox.Option>
+            </Listbox.Options>
+          </Listbox>
+        </div>
       </div>
 
       {/* Mobile ListBox */}
-      <div className="md:hidden">
+      <div className="md:hidden text-sm relative">
         <Listbox value={filter} onChange={setFilter}>
           <Listbox.Button className="relative w-full cursor-default rounded-md bg-gray-700 py-1.5 pl-3 pr-10 text-left text-gray-200 shadow-sm ring-1 ring-inset ring-gray-600 md:text-sm md:leading-6 ">
             <span className="block truncate">{filter}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              <ChevronUpDownIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
-          <Listbox.Options className={"bg-gray-700 p-4 rounded max-h-64 overflow-auto"}>
+          <Listbox.Options
+            className={"bg-gray-700 p-4 rounded max-h-64 overflow-auto mt-4 z-30 left-0 right-0 shadow-xl border border-gray-600"}
+          >
             {categories.map((category) => (
-              <Listbox.Option
-                key={category}
-                value={category}
-                className="text-gray-300 font-bold hover:text-white  hover:bg-gray-600 cursor-pointer"
-              >
+              <Listbox.Option key={category} value={category} className="listbox-item">
                 {category}
               </Listbox.Option>
             ))}

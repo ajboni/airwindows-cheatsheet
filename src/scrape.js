@@ -19,7 +19,7 @@ async function getAirwindopedia() {
   const introText = intro.split("# Categories")[0];
   database.introText = introText;
   const categoriesText = intro.split("# Categories")[1];
-  const categoriesRegex = /^([\w]{1}[\w\s\-]+):(.+)$/gm;
+  const categoriesRegex = /^([\w]{1}[\w\s-]+):(.+)$/gm;
   const categoriesMatches = categoriesText.matchAll(categoriesRegex);
 
   // Get plugin names and categories
@@ -44,13 +44,14 @@ async function getAirwindopedia() {
     const title = titleMatch[3].trim();
     const shortDescription = titleMatch[2].trim();
     const description = plugin.replace(titleMatch[1], "").trim();
-    const category = tempCategoryDB[title] || null;
-
+    const category = tempCategoryDB[title] || "Uncategorized";
+    const goodness = database.categories[category]?.indexOf(title) + 1 || 999;
     database.plugins.push({
       name: title,
       shortDescription: shortDescription,
       description: description,
       category: category,
+      goodness: goodness,
     });
   }
 
