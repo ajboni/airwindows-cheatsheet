@@ -1,12 +1,16 @@
 {
-  "name": "airwindows-cheatsheet-airwindopedia",
+  "name": "airwindows-cheatsheet",
+  "description": "Cheatsheet forplugins. This project aims to build an automated frontend for the airwindowpedia documentation file.",
+  "license": "LGPL-3.0-or-later",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Alexis Boni <mail@aboni.dev>",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "npm run scrape && vite build",
     "scrape": "node ./src/scrape.js",
+    "generate-pwa-assets": "pwa-assets-generator",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -21,6 +25,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@vite-pwa/assets-generator": "^0.0.10",
     "@vitejs/plugin-react": "^4.0.4",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.47.0",
