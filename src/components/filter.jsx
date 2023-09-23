@@ -1,5 +1,5 @@
 import { Listbox } from "@headlessui/react";
-import { ChevronUpDownIcon, LockClosedIcon, MagnifyingGlassIcon, XCircleIcon } from "@heroicons/react/20/solid";
+import { ChevronUpDownIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export const Filter = ({ db, filter, setFilter, search, setSearch, sortBy, setSortBy }) => {

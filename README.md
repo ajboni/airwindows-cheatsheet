@@ -1,7 +1,8 @@
 # Airwindows Cheatsheet
 
 Cheatsheet for [Airwindows](https://www.airwindows.com) plugins.  
-This project aims to build an automated frontend for the airwindowpedia documentation file.
+This project aims to build an automated frontend for the airwindopedia documentation file.  
+This site works offline and can be "Installed" on mobile devices and computers as a PWA app.
 
 # Features
 

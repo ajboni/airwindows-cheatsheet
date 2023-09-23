@@ -44,7 +44,7 @@ export function App() {
                         Github
                       </a>
                     </p>
-                    <p>This site works offline and can be "Installed" on movile devices and computers as a PWA app.</p>
+                    <p>This site works offline and can be "Installed" on mobile devices and computers as a PWA app.</p>
                     <p className="mt-2">
                       <strong>Remember</strong>: {'"In a mix, no one can hear your screen."'}
                     </p>
