@@ -19,6 +19,6 @@ The content of [airwindopedia](https://www.airwindows.com/wp-content/uploads/Air
 # Development
 
 - Clone the repo.
-- `npm install``
-- `npm run dev``
+- `npm install`
+- `npm run dev`
 - Web server should be reachable at `http://localhost:5173`
