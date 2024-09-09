@@ -9,7 +9,7 @@ export const Filter = ({ db, filter, setFilter, search, setSearch, sortBy, setSo
   return (
     <>
       {/* Filter Buttons */}
-      <ul role="list" className={`hidden md:grid grid-cols-2 gap-2  md:grid-cols-6 lg:grid-cols-9 xl:grid-cols-12`}>
+      <ul role="list" className={`hidden lg:grid grid-cols-2 gap-2  lg:grid-cols-6 lg:grid-cols-9 xl:grid-cols-12`}>
         {categories.map((category) => {
           return (
             <li
@@ -46,7 +46,7 @@ export const Filter = ({ db, filter, setFilter, search, setSearch, sortBy, setSo
         {/* Sort By */}
         <div className="text-sm relative w-2/6 xl:w-1/6">
           <Listbox value={sortBy} onChange={setSortBy}>
-            <Listbox.Button className="h-8 border-none relative w-full cursor-default rounded-md bg-gray-700 py-1 pl-3 pr-10 text-left text-gray-200 shadow-sm md:text-sm md:leading-6 ">
+            <Listbox.Button className="h-8 border-none relative w-full cursor-default rounded-md bg-gray-700 py-1 pl-3 pr-10 text-left text-gray-200 shadow-sm lg:text-sm lg:leading-6 ">
               <span className="block truncate">{sortBy}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
@@ -65,9 +65,9 @@ export const Filter = ({ db, filter, setFilter, search, setSearch, sortBy, setSo
       </div>
 
       {/* Mobile ListBox */}
-      <div className="md:hidden text-sm relative">
+      <div className="lg:hidden text-sm relative">
         <Listbox value={filter} onChange={setFilter}>
-          <Listbox.Button className="relative w-full cursor-default rounded-md bg-gray-700 py-1.5 pl-3 pr-10 text-left text-gray-200 shadow-sm  md:text-sm md:leading-6 ">
+          <Listbox.Button className="relative w-full cursor-default rounded-md bg-gray-700 py-1.5 pl-3 pr-10 text-left text-gray-200 shadow-sm  lg:text-sm lg:leading-6 ">
             <span className="block truncate">{filter}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />

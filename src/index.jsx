@@ -18,7 +18,7 @@ export function App() {
     <main className="bg-gray-800 w-screen h-screen text-gray-200 overflow-hidden ">
       <div className="p-4 lg:p-8 flex flex-col gap-8 h-full">
         <div className="text-center flex flex-col gap-4 items-center justify-center mt-4">
-          <h1 className="text-3xl font-bold md:text-5xl max-w-xl">Airwindows Cheatsheet</h1>
+          <h1 className="text-3xl font-bold lg:text-5xl max-w-xl">Airwindows Cheatsheet</h1>
           <Popover className="relative">
             <div className="text-gray-400 max-w-xl">
               Cheatsheet for the <strong className="text-white bg-green-700 saturate-50 px-1 ">{db.plugins.length}</strong>{" "}

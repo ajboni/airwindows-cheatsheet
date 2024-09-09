@@ -9,6 +9,7 @@ This site works offline and can be "Installed" on mobile devices and computers a
 - Category filters
 - Search filters
 - Favorites
+- Add your own notes to plugins.
 - Automatic Builds.
 - Mobile friendly.
 
@@ -22,3 +23,11 @@ The content of [airwindopedia](https://www.airwindows.com/wp-content/uploads/Air
 - `npm install`
 - `npm run dev`
 - Web server should be reachable at `http://localhost:5173`
+
+# Build
+
+- `npm run build`
+
+# Scrape
+
+- `npm run scrape`
