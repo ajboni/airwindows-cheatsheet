@@ -1,20 +1,11 @@
-import {
-  ArrowUturnLeftIcon,
-  ClipboardIcon,
-  DocumentIcon,
-  DocumentTextIcon,
-  PencilIcon,
-  PencilSquareIcon,
-  PlusCircleIcon,
-} from "@heroicons/react/20/solid";
-import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
+import { ArrowUturnLeftIcon, DocumentTextIcon, PencilSquareIcon } from "@heroicons/react/20/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
+import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
 import NotesEditor from "./notes"; // Import the NotesEditor component
 
 import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
-import { isFavorite, toggleFavorite, getFavorites } from "../utils/pluginStorage";
-import { getNotes } from "../utils/pluginStorage";
+import { getFavorites, getNotes, isFavorite, toggleFavorite } from "../utils/pluginStorage";
 
 function PluginList({ db, filter, search, sortBy }) {
   const [selectedPlugin, setSelectedPlugin] = useState(null);
@@ -134,7 +125,7 @@ function PluginList({ db, filter, search, sortBy }) {
             title={getNotes(selectedPlugin?.name) ? "Edit Notes" : "Add Notes"}
             onClick={handleOpenNotesEditor}
           >
-            {getNotes(selectedPlugin?.name) ? <PencilSquareIcon className="h-6 w-6" /> : <DocumentTe className="h-6 w-6" />}
+            {getNotes(selectedPlugin?.name) ? <PencilSquareIcon className="h-6 w-6" /> : <DocumentTextIcon className="h-6 w-6" />}
           </div>
         )}
       </div>
