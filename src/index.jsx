@@ -4,7 +4,7 @@ import "./index.css";
 
 import { useState } from "react";
 
-import { Popover } from "@headlessui/react";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 import { Filter } from "./components/filter";
 import PluginList from "./components/pluginList";
@@ -16,9 +16,9 @@ export function App() {
   const [sortBy, setSortBy] = useState("Order of Goodness");
   return (
     <main className="bg-gray-800 w-screen h-screen text-gray-200 overflow-hidden ">
-      <div className="p-4 lg:p-8 flex flex-col gap-8 h-full">
-        <div className="text-center flex flex-col gap-4 items-center justify-center mt-4">
-          <h1 className="text-3xl font-bold lg:text-5xl max-w-xl">Airwindows Cheatsheet</h1>
+      <div className="p-4 lg:p-8 flex flex-col gap-6 h-full">
+        <div className="text-center flex flex-col gap-4 items-center justify-center">
+          <h1 className="text-3xl font-bold lg:text-4xl max-w-xl">Airwindows Cheatsheet</h1>
           <Popover className="relative">
             <div className="text-gray-400 max-w-xl">
               Cheatsheet for the <strong className="text-white bg-green-700 saturate-50 px-1 ">{db.plugins.length}</strong>{" "}
@@ -28,11 +28,11 @@ export function App() {
               plugins. This project aims to build an automated frontend for the{" "}
               <a href="https://www.airwindows.com/wp-content/uploads/Airwindopedia.txt">airwindowpedia</a> documentation file.
               <span className="ml-2">
-                <Popover.Button>
+                <PopoverButton>
                   <InformationCircleIcon className="h-4 w-4"></InformationCircleIcon>
-                </Popover.Button>
+                </PopoverButton>
 
-                <Popover.Panel className="absolute z-10 bg-gray-900 rounded border-2 border-gray-600 shadow-2xl mt-4">
+                <PopoverPanel className="absolute z-10 bg-gray-900 rounded border-2 border-gray-600 shadow-2xl mt-4">
                   <div className="text-sm p-16 text-gray-300 italic text-center">
                     The content of airwindopedia (used in this page) is property of Chris Johnson © 2023{" "}
                     <a href="https://www.airwindows.com" target="_blank" rel="noreferrer">
@@ -49,7 +49,7 @@ export function App() {
                       <strong>Remember</strong>: {'"In a mix, no one can hear your screen."'}
                     </p>
                   </div>
-                </Popover.Panel>
+                </PopoverPanel>
               </span>
             </div>
           </Popover>
