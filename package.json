@@ -10,7 +10,6 @@
     "dev": "vite",
     "build": "npm run scrape && vite build",
     "scrape": "node ./src/scrape.js",
-    "generate-pwa-assets": "pwa-assets-generator",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -25,7 +24,6 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
-    "@vite-pwa/assets-generator": "^0.2.6",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.16.0",
